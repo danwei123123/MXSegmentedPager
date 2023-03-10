@@ -252,6 +252,12 @@
     }
 }
 
+- (void)pagerView:(MXPagerView *)pagerView didMoveToPage:(UIView *)page atIndex:(NSInteger)index {
+    if ([self.delegate respondsToSelector:@selector(segmentedPager:didSelectViewAtIndex:)]) {
+        [self.delegate segmentedPager:self didSelectViewAtIndex:index];
+    }
+}
+
 #pragma mark <MXPagerViewDataSource>
 
 - (NSInteger)numberOfPagesInPagerView:(MXPagerView *)pagerView {
